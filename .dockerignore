@@ -1,0 +1,5 @@
+_data/pb/data/
+_data/pb/public/
+.git/
+*.md
+.env
