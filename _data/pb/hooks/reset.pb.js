@@ -32,15 +32,13 @@ routerAdd("GET", "/api/group2/reset", (requestContext) => {
 		});
 
 		console.log(`[RESET] Reset ${allAssigned.length} records in responsesGroup_1`);
-		return requestContext.json(200, {
-			statusCode: 200,
-			message: `Cleared assignment for ${allAssigned.length} records in responsesGroup_1`,
-		});
+
+		return requestContext.html(
+			200,
+			`<html><body><h1>Reset Complete</h1><p>Cleared assignment for ${allAssigned.length} records in responsesGroup_1.</p></body></html>`,
+		);
 	} catch (e) {
 		logger(e);
-		return requestContext.json(400, {
-			statusCode: 400,
-			message: `Encountered error: ${e.toString()}`,
-		});
+		return requestContext.html(400, `<html><body><h1>Error</h1><p>Encountered error: ${e.toString()}</p></body></html>`);
 	}
 });
